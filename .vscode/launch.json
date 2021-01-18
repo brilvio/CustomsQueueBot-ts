@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "cwd": "${workspaceRoot}",
+      "name": "Launch Program",
+      "runtimeArgs": ["--nolazy", "-r", "ts-node/register", "-r", "tsconfig-paths/register"],
+      "args": ["${workspaceRoot}/src/index.ts"]
+    }
+  ]
+}
