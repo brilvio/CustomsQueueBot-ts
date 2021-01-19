@@ -16,7 +16,6 @@ export class Help implements ICommand {
 
   // eslint-disable-next-line
   private async help(message: Message, args?: Array<any>) {
-    console.log('test');
     const embed = new MessageEmbed();
     if (!args || args.length === 0) {
       embed.setColor([4, 137, 218]); // random colors for funsies.
@@ -50,21 +49,6 @@ export class Help implements ICommand {
         false
       );
       message.reply(embed);
-      /*
-
-        foreach (var match in result.Commands)
-        {
-            var cmd = match.Command;
-            embed.AddField(x =>
-            {
-                x.Name = string.Join(", ", cmd.Aliases);
-                x.Value = $"Parameters {string.Join(", ", cmd.Parameters.Select(p => p.Name))}\n" +
-                $"Summary {cmd.Summary}";
-                x.IsInline = false;
-            });
-        }
-
-        await ReplyAsync(embed: embed.Build()); */
     }
   }
 }
