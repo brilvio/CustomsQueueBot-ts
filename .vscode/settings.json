@@ -1,0 +1,19 @@
+{
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "explorer.confirmDragAndDrop": false,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescriptHero.imports.grouping": ["Plains", "Modules", "Workspace"],
+  "typescriptHero.imports.organizeOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": true
+  },
+  "files.eol": "\n",
+  "prettier.arrowParens": "avoid"
+}

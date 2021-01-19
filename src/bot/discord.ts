@@ -5,6 +5,7 @@ import { config } from 'config/config';
 import { parse } from 'discord-command-parser';
 import { Client, Message } from 'discord.js';
 import { log } from 'logger';
+import { ICommand } from 'models/commands';
 
 export class DiscordClient {
   private client: Client;
@@ -47,7 +48,7 @@ export class DiscordClient {
         if (!parsed.success) return;
 
         // eslint-disable-next-line max-len
-        const command = commandHandler.commands.find((el) => el.alias.indexOf(parsed.command) > 0 || el.command === parsed.command);
+        const command: ICommand = commandHandler.findCommand(parsed.command);
         if (!command) {
           message.reply(`Sorry this command ${parsed.command} does not exist!`);
         }
