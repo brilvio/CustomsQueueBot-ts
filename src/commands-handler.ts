@@ -2,6 +2,7 @@
 /* eslint-disable new-cap */
 /* eslint-disable no-restricted-syntax */
 import glob from 'glob';
+import { log } from 'logger';
 import { ICommand } from 'models/commands';
 import moment from 'moment';
 
@@ -39,7 +40,7 @@ class CommandsHandler {
               moduleName = mol[key];
             } else {
               const command: ICommand = new mol[key]();
-              console.log(`${moment().format()} => [COMMANDS] : ${command.command} from [MODULE] : ${moduleName} was loaded.`);
+              log.debug(`${moment().format()} => [COMMANDS] : ${command.command} from [MODULE] : ${moduleName} was loaded.`);
               // eslint-disable-next-line no-loop-func
               this.modules.find((el) => el.moduleName === moduleName)?.commands.push(command);
             }
