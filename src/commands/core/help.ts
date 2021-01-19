@@ -1,10 +1,12 @@
+/* eslint-disable comma-dangle */
 import { commandHandler } from 'commands-handler';
 import { config } from 'config/config';
 import { Message, MessageEmbed } from 'discord.js';
-import { ICommand } from 'models/commands';
+import { ICommand, IParameters } from 'models/commands';
 
 export const moduleName = 'Help';
 export class Help implements ICommand {
+  parameters: Array<IParameters> = [{ name: 'command-name', description: 'Command name that you want more information' }];
   command: string = 'help';
   alias: string[] = ['command', 'commands'];
   summary: string = ": Displays all of the bot's commands, or displays info about a specific command.";
@@ -41,6 +43,13 @@ export class Help implements ICommand {
 
       embed.setColor([114, 137, 218]);
       embed.setDescription(`Here are the **${args[0]}** commands.`);
+
+      embed.addField(
+        `${command.command}, ${command.alias.join(', ')}`,
+        `Parameters: ${command.parameters.map((e) => e.name).join(', ')}\nSummary ${command.summary}`,
+        false
+      );
+      message.reply(embed);
       /*
 
         foreach (var match in result.Commands)
