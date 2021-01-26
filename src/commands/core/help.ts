@@ -44,7 +44,7 @@ export class Help implements ICommand {
       embed.setDescription(`Here are the **${args[0]}** commands.`);
 
       embed.addField(
-        `${command.command}, ${command.alias.join(', ')}`,
+        `${command.command}${command.alias?.length ? `, ${command.alias?.join(', ')}` : ''}`,
         `Parameters: ${command.parameters.map((e) => e.name).join(', ')}\nSummary ${command.summary}`,
         false
       );

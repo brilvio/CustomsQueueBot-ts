@@ -1,6 +1,3 @@
-/* eslint-disable max-classes-per-file */
-/* eslint-disable new-cap */
-/* eslint-disable no-restricted-syntax */
 import glob from 'glob';
 import { log } from 'logger';
 import { ICommand } from 'models/commands';
@@ -16,7 +13,10 @@ class CommandsHandler {
     let com: ICommand = null;
     for (const mod of this.modules) {
       // eslint-disable-next-line max-len
-      com = mod.commands.find((el) => el.alias.indexOf(command) > 0 || el.command === command);
+      com = mod.commands.find((el) => el.alias?.indexOf(command) > 0 || el.command === command);
+      if (com) {
+        return com;
+      }
     }
     return com;
   }
@@ -51,5 +51,4 @@ class CommandsHandler {
   }
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export const commandHandler = new CommandsHandler();
